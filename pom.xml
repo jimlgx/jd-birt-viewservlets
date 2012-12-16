@@ -65,6 +65,25 @@
 					</compilerArguments>
 				</configuration>
 			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-war-plugin</artifactId>
+				<version>2.1.1</version>
+				<executions>
+					<execution>
+						<id>skinny-war</id>
+						<phase>package</phase>
+						<goals>
+							<goal>war</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<classifier>skinny-war</classifier>
+					<!-- 打war包排除的文件 ,WEB-INF/lib/*.jar,WEB-INF/classes/** -->
+					<packagingExcludes>WEB-INF/**,/**/test/**,/**/demo/**,/**/readme.txt</packagingExcludes>
+				</configuration>
+			</plugin>
 		</plugins>
 	</build>
 </project>

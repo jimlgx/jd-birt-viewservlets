@@ -20,4 +20,8 @@ web工程启动需要
 
 viewservlets.jar
 
+测试命令
+
+
+
 

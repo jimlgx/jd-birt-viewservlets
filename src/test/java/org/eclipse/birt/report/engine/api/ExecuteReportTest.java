@@ -11,6 +11,7 @@ package org.eclipse.birt.report.engine.api;
 
 import java.util.HashMap;
 import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import org.eclipse.birt.core.framework.Platform;
 
@@ -24,7 +25,13 @@ import org.eclipse.birt.core.framework.Platform;
  *        http://my.oschina.net/kzhou/blog/9172
  */
 public class ExecuteReportTest {
-	static void executeReport() throws EngineException {
+	/**
+	 * <code>executeReport</code>
+	 * 
+	 * @throws EngineException
+	 * @since 2012-12-17 wangjunming
+	 */
+	protected static void executeReport() throws EngineException {
 
 		HashMap<String, String> parameters = new HashMap<String, String>();
 
@@ -51,12 +58,14 @@ public class ExecuteReportTest {
 			config = new EngineConfig();
 
 			// config.setEngineHome("E:/TDDOWNLOAD/birt-runtime-2_6_1/birt-runtime-2_6_1/ReportEngine");
-			config.setEngineHome("D:\\APP\\birt\\runtime-4_2_1\\ReportEngine");
+			// config.setEngineHome("D:\\APP\\birt\\runtime-4_2_1\\ReportEngine");
 
 			// 设置报表日志保存的位置和等级( null, Level ) 如果你不需要日志可以设置为null
 
 			// config.setLogConfig("d:/birt/logs", Level.ALL.FINE);
-			config.setLogConfig("logs", Level.ALL);
+			// config.setLogConfig("logs", Level.ALL);
+
+			// config.setLogger(Logger.getAnonymousLogger());
 
 			// 平台初始化，启用
 
@@ -68,7 +77,7 @@ public class ExecuteReportTest {
 
 			engine = factory.createReportEngine(config);
 
-			engine.changeLogLevel(Level.WARNING);
+			engine.changeLogLevel(Level.ALL);
 
 		} catch (Exception ex) {
 
